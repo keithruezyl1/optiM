@@ -138,7 +138,10 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
           </thead>
           <tbody>
             {filtered.map((s) => (
-              <tr key={s.id} className="border-b border-border align-top last:border-b-0">
+              <tr
+                key={s.id}
+                className="border-b border-border align-top transition-colors duration-150 last:border-b-0 hover:bg-slate-100/60"
+              >
                 <td className="px-4 py-3" style={{ boxShadow: `inset 3px 0 0 ${BUCKET_BORDER[s.bucket]}` }}>
                   <span className="flex items-center gap-2.5">
                     <Avatar name={s.full_name} role={s.role} />
@@ -181,7 +184,7 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
                       Onboarding
                     </span>
                   ) : (
-                    <span className="font-medium" style={{ color: "#2BA66B" }}>
+                    <span className="font-medium" style={{ color: "#1F7A4D" }}>
                       Complete
                     </span>
                   )}

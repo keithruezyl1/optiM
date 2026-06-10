@@ -173,7 +173,7 @@ export function Sidebar({
           </nav>
 
           <div className="border-t border-border px-5 py-3 text-label uppercase tracking-wide text-steel">
-            JVM Solutions
+            system built for JVM Solutions
           </div>
         </div>
       )}
