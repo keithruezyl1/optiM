@@ -13,10 +13,12 @@ const CRED_TONE: Record<CredentialStatus, PillTone> = {
   current: "green",
 };
 
-const BUCKET_BORDER: Record<CredentialStatus, string> = {
+// Expiry-date text color carries each credential's status; the Status column
+// pill confirms it. No left-edge bar.
+const EXPIRY_COLOR: Record<CredentialStatus, string> = {
   expired: "#C0392B",
   expiring: "#C77D1F",
-  current: "transparent",
+  current: "#1A2433",
 };
 
 // Self-contained staff table with per-column filters. Each filter narrows the
@@ -142,7 +144,7 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
                 key={s.id}
                 className="border-b border-border align-top transition-colors duration-150 last:border-b-0 hover:bg-slate-100/60"
               >
-                <td className="px-4 py-3" style={{ boxShadow: `inset 3px 0 0 ${BUCKET_BORDER[s.bucket]}` }}>
+                <td className="px-4 py-3">
                   <span className="flex items-center gap-2.5">
                     <Avatar name={s.full_name} role={s.role} />
                     <span className="font-medium text-ink">{s.full_name}</span>
@@ -171,7 +173,11 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
                 <td className="px-4 py-3 text-center">
                   <div className="flex flex-col items-center gap-1.5">
                     {s.credentials.map((c) => (
-                      <span key={c.id} className="font-mono text-[12px] leading-[22px] text-ink tnum">
+                      <span
+                        key={c.id}
+                        className="font-mono text-[12px] font-medium leading-[22px] tnum"
+                        style={{ color: EXPIRY_COLOR[c.status] }}
+                      >
                         {formatShortDate(c.expires_on)}
                       </span>
                     ))}

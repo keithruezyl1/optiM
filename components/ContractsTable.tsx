@@ -8,10 +8,12 @@ const DELIVERABLE_TONE: Record<DeliverableStatus, PillTone> = {
   on_track: "green",
 };
 
-const DELIVERABLE_BORDER: Record<DeliverableStatus, string> = {
+// Due-date text color carries the status (the date is what determines it);
+// the STATUS pill confirms it. No left-edge bar.
+const DUE_COLOR: Record<DeliverableStatus, string> = {
   overdue: "#C0392B",
   due_soon: "#C77D1F",
-  on_track: "transparent",
+  on_track: "#1A2433",
 };
 
 function formatValue(v: number | null): string {
@@ -84,10 +86,7 @@ export function ContractsTable({ contracts }: { contracts: ComputedContract[] })
             <tbody>
               {c.deliverables.map((d) => (
                 <tr key={d.id} className="border-b border-border last:border-b-0">
-                  <td
-                    className="px-5 py-2.5 text-ink"
-                    style={{ boxShadow: `inset 3px 0 0 ${DELIVERABLE_BORDER[d.status]}` }}
-                  >
+                  <td className="px-5 py-2.5 text-ink">
                     {d.title}
                     {d.completed && (
                       <span className="ml-2 text-[11px] uppercase text-ops-green">done</span>
@@ -95,7 +94,10 @@ export function ContractsTable({ contracts }: { contracts: ComputedContract[] })
                   </td>
                   <td className="px-5 py-2.5 text-ink">{d.owner}</td>
                   <td className="px-5 py-2.5 text-right">
-                    <span className="font-mono text-[12px] text-ink tnum">
+                    <span
+                      className="font-mono text-[12px] font-medium tnum"
+                      style={{ color: DUE_COLOR[d.status] }}
+                    >
                       {(() => {
                         const [y, m, day] = d.due_on.split("-").map(Number);
                         return new Date(y, m - 1, day).toLocaleDateString("en-US", {
