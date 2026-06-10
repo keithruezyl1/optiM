@@ -48,10 +48,10 @@ export function ContractsTable({ contracts }: { contracts: ComputedContract[] })
           <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border px-5 py-4">
             <div>
               <div className="flex items-center gap-3">
+                <StatusPill tone="green" label={c.status.toUpperCase()} />
                 <span className="font-mono text-[12px] text-steel tnum">
                   {c.contract_number}
                 </span>
-                <StatusPill tone="green" label={c.status.toUpperCase()} />
               </div>
               <h3 className="mt-1 text-section font-semibold text-navy-900">{c.name}</h3>
               <p className="mt-0.5 text-table text-steel">{c.client_agency}</p>
