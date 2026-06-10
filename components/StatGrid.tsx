@@ -82,7 +82,7 @@ function StatCard({ item }: { item: StatItem }) {
   const Icon = ICONS[item.icon];
   return (
     <div
-      className="relative flex min-h-[148px] flex-col justify-between overflow-hidden rounded-2xl p-4 text-white"
+      className="relative flex min-h-[148px] flex-col justify-end overflow-hidden rounded-2xl p-4 text-white"
       style={{
         background: `linear-gradient(150deg, ${g.from} 0%, ${g.to} 100%)`,
         boxShadow: `0 12px 28px -10px ${g.shadow}, inset 0 1px 0 rgba(255,255,255,.22)`,
@@ -97,17 +97,14 @@ function StatCard({ item }: { item: StatItem }) {
             "radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 45%)",
         }}
       />
-      <span
+      {/* large, low-opacity icon watermark behind the content */}
+      <Icon
         aria-hidden
-        className="pointer-events-none absolute -right-6 -top-10 h-28 w-28 rounded-full"
-        style={{ background: "rgba(255,255,255,.10)" }}
+        size={132}
+        strokeWidth={1.5}
+        className="pointer-events-none absolute -right-4 -top-5 text-white"
+        style={{ opacity: 0.16 }}
       />
-
-      <div className="relative flex items-center justify-between">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20">
-          <Icon size={18} aria-hidden />
-        </span>
-      </div>
 
       <div className="relative">
         <div className="font-serif text-stat font-semibold tabular-nums tracking-tight">
