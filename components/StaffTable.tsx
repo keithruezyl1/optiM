@@ -21,15 +21,16 @@ const BUCKET_BORDER: Record<CredentialStatus, string> = {
 
 // Self-contained staff table with per-column filters. Each filter narrows the
 // rows live and the container reflows; a summary line reports the visible count.
+// Credentials, Status, and Expiry are three aligned stacked columns (one entry
+// per credential per row).
 export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
   const [name, setName] = useState("");
   const [roles, setRoles] = useState<string[]>([]);
   const [creds, setCreds] = useState<string[]>([]);
-  const [expiry, setExpiry] = useState("all"); // all | expired | expiring | current
+  const [status, setStatus] = useState("all"); // all | expired | expiring | current (worst bucket)
   const [facilities, setFacilities] = useState<string[]>([]);
   const [onboarding, setOnboarding] = useState("all"); // all | complete | in_progress
 
-  // Option lists derived from the data so filters only offer what's present.
   const roleOptions = useMemo(
     () => Array.from(new Set(staff.map((s) => s.role))).sort(),
     [staff]
@@ -50,20 +51,20 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
       if (roles.length && !roles.includes(s.role)) return false;
       if (facilities.length && !facilities.includes(s.facility)) return false;
       if (creds.length && !s.credentials.some((c) => creds.includes(c.credential_name))) return false;
-      if (expiry !== "all" && s.bucket !== expiry) return false;
+      if (status !== "all" && s.bucket !== status) return false;
       if (onboarding !== "all" && s.onboarding_status !== onboarding) return false;
       return true;
     });
-  }, [staff, name, roles, facilities, creds, expiry, onboarding]);
+  }, [staff, name, roles, facilities, creds, status, onboarding]);
 
   const anyFilter =
-    name !== "" || roles.length > 0 || creds.length > 0 || expiry !== "all" || facilities.length > 0 || onboarding !== "all";
+    name !== "" || roles.length > 0 || creds.length > 0 || status !== "all" || facilities.length > 0 || onboarding !== "all";
 
   function clearAll() {
     setName("");
     setRoles([]);
     setCreds([]);
-    setExpiry("all");
+    setStatus("all");
     setFacilities([]);
     setOnboarding("all");
   }
@@ -95,39 +96,43 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
               <th className="px-4 py-3">
                 <ColumnFilter kind="multi" label="Credentials" active={creds.length > 0} value={creds} options={credOptions} onChange={setCreds} />
               </th>
-              <th className="px-4 py-3 text-right">
+              <th className="px-4 py-3">
                 <ColumnFilter
                   kind="single"
-                  label="Expiry"
-                  align="right"
-                  active={expiry !== "all"}
-                  value={expiry}
+                  label="Status"
+                  active={status !== "all"}
+                  value={status}
                   options={[
                     { value: "all", label: "All" },
                     { value: "expired", label: "Expired" },
                     { value: "expiring", label: "Expiring ≤60d" },
                     { value: "current", label: "Current" },
                   ]}
-                  onChange={setExpiry}
+                  onChange={setStatus}
                 />
+              </th>
+              <th className="px-4 py-3 text-center">
+                <span className="text-label uppercase tracking-wide text-steel">Expiry</span>
               </th>
               <th className="px-4 py-3">
                 <ColumnFilter kind="multi" label="Facility / Deployment" active={facilities.length > 0} value={facilities} options={facilityOptions} onChange={setFacilities} />
               </th>
-              <th className="px-4 py-3">
-                <ColumnFilter
-                  kind="single"
-                  label="Onboarding"
-                  align="right"
-                  active={onboarding !== "all"}
-                  value={onboarding}
-                  options={[
-                    { value: "all", label: "All" },
-                    { value: "complete", label: "Complete" },
-                    { value: "in_progress", label: "In progress" },
-                  ]}
-                  onChange={setOnboarding}
-                />
+              <th className="px-4 py-3 text-center">
+                <div className="flex justify-center">
+                  <ColumnFilter
+                    kind="single"
+                    label="Onboarding"
+                    align="right"
+                    active={onboarding !== "all"}
+                    value={onboarding}
+                    options={[
+                      { value: "all", label: "All" },
+                      { value: "complete", label: "Complete" },
+                      { value: "in_progress", label: "In progress" },
+                    ]}
+                    onChange={setOnboarding}
+                  />
+                </div>
               </th>
             </tr>
           </thead>
@@ -144,16 +149,24 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
                 <td className="px-4 py-3">
                   <div className="flex flex-col gap-1.5">
                     {s.credentials.map((c) => (
-                      <div key={c.id} className="flex items-center gap-2">
-                        <span className="text-ink">{c.credential_name}</span>
-                        <StatusPill tone={CRED_TONE[c.status]} label={credentialPillLabel(c)} />
-                      </div>
+                      <span key={c.id} className="leading-[22px] text-ink">
+                        {c.credential_name}
+                      </span>
                     ))}
                     {s.credentials.length === 0 && <span className="text-steel">No credentials on file</span>}
                   </div>
                 </td>
-                <td className="px-4 py-3 text-right">
-                  <div className="flex flex-col gap-1.5">
+                <td className="px-4 py-3">
+                  <div className="flex flex-col items-start gap-1.5">
+                    {s.credentials.map((c) => (
+                      <span key={c.id} className="flex h-[22px] items-center">
+                        <StatusPill tone={CRED_TONE[c.status]} label={credentialPillLabel(c)} />
+                      </span>
+                    ))}
+                  </div>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <div className="flex flex-col items-center gap-1.5">
                     {s.credentials.map((c) => (
                       <span key={c.id} className="font-mono text-[12px] leading-[22px] text-ink tnum">
                         {formatShortDate(c.expires_on)}
@@ -162,11 +175,15 @@ export function StaffTable({ staff }: { staff: ComputedStaff[] }) {
                   </div>
                 </td>
                 <td className="px-4 py-3 text-ink">{s.facility}</td>
-                <td className="px-4 py-3">
+                <td className="px-4 py-3 text-center">
                   {s.onboarding_status === "in_progress" ? (
-                    <StatusPill tone="neutral" label="ONBOARDING" />
+                    <span className="font-medium" style={{ color: "#C77D1F" }}>
+                      Onboarding
+                    </span>
                   ) : (
-                    <span className="text-steel">Complete</span>
+                    <span className="font-medium" style={{ color: "#2BA66B" }}>
+                      Complete
+                    </span>
                   )}
                 </td>
               </tr>
