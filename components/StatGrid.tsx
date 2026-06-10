@@ -102,7 +102,7 @@ function StatCard({ item }: { item: StatItem }) {
         aria-hidden
         size={176}
         strokeWidth={1.5}
-        className="pointer-events-none absolute right-2 top-3 text-white"
+        className="pointer-events-none absolute -right-1 top-3 text-white"
         style={{ opacity: 0.16 }}
       />
 
