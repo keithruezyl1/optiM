@@ -85,7 +85,7 @@ export function Sidebar({
                 <Link
                   href={leafHref(base, leaf.status)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group flex items-center justify-between rounded-lg px-3 py-2 text-ui transition-colors duration-150 ease-ops ${
+                  className={`group flex items-center justify-between rounded-lg py-2 pl-6 pr-3 text-ui transition-colors duration-150 ease-ops ${
                     isActive
                       ? "bg-navy-900/[0.06] font-semibold text-navy-900"
                       : "text-ink/80 hover:bg-slate-100"
