@@ -100,9 +100,9 @@ function StatCard({ item }: { item: StatItem }) {
       {/* large, low-opacity icon watermark behind the content */}
       <Icon
         aria-hidden
-        size={132}
+        size={176}
         strokeWidth={1.5}
-        className="pointer-events-none absolute -right-4 -top-5 text-white"
+        className="pointer-events-none absolute right-2 top-6 text-white"
         style={{ opacity: 0.16 }}
       />
 
