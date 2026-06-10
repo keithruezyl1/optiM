@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { UserPlus, CheckCircle2, Sparkles } from "lucide-react";
+import { UserPlus, CheckCircle2 } from "lucide-react";
 import type { ComputedStaff } from "@/lib/types";
 import { StaffTable } from "./StaffTable";
 import { AiSummaryPanel, type AiState } from "./AiSummaryPanel";
@@ -61,28 +61,17 @@ export function StaffingView({
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="t-h2">Staff directory</h2>
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={runAi}
-            disabled={aiState === "loading"}
-            className="inline-flex items-center gap-2 rounded-card border border-navy-900 px-4 py-2 text-ui font-semibold text-navy-900 transition-colors duration-150 ease-ops hover:bg-navy-900 hover:text-white disabled:cursor-wait disabled:opacity-70"
-          >
-            <Sparkles size={16} aria-hidden />
-            {aiState === "loading" ? "Analyzing…" : "Run AI summary"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setModalOpen(true)}
-            className="inline-flex items-center gap-2 rounded-card bg-navy-900 px-4 py-2 text-ui font-semibold text-white transition-colors duration-150 ease-ops hover:bg-navy-700"
-          >
-            <UserPlus size={16} aria-hidden />
-            Add staff member
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setModalOpen(true)}
+          className="inline-flex items-center gap-2 rounded-card bg-navy-900 px-4 py-2 text-ui font-semibold text-white transition-colors duration-150 ease-ops hover:bg-navy-700"
+        >
+          <UserPlus size={16} aria-hidden />
+          Add staff member
+        </button>
       </div>
 
-      <AiSummaryPanel state={aiState} summary={summary} staffCount={staff.length} onRetry={runAi} />
+      <AiSummaryPanel state={aiState} summary={summary} staffCount={staff.length} onRun={runAi} />
 
       <StaffTable staff={scoped} />
 
