@@ -64,8 +64,15 @@ export function ContractsTable({ contracts }: { contracts: ComputedContract[] })
             </div>
           </div>
 
-          {/* Deliverables */}
-          <table className="w-full border-collapse text-table">
+          {/* Deliverables. table-fixed + shared column widths so every contract
+              card lines up column-for-column. */}
+          <table className="w-full table-fixed border-collapse text-table">
+            <colgroup>
+              <col className="w-[46%]" />
+              <col className="w-[22%]" />
+              <col className="w-[14%]" />
+              <col className="w-[18%]" />
+            </colgroup>
             <thead>
               <tr className="border-b border-border text-left text-label uppercase text-steel">
                 <th className="px-5 py-2.5 font-semibold">Deliverable</th>
