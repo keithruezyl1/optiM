@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-slate-100 text-ink font-sans antialiased;
+    font-feature-settings: "tnum" 1; /* tabular numerals for data alignment */
+  }
+
+  /* Gold 2px focus ring, per Quality Floor (section 9). */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid theme("colors.gold");
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* Tabular numerals for the Readiness Strip + dates so columns never jitter. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+/* Respect reduced motion globally as a safety net (components also gate via
+   useReducedMotion). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
