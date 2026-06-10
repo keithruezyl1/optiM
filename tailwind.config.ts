@@ -32,6 +32,8 @@ const config: Config = {
       sans: ["var(--font-plex-sans)", "system-ui", "sans-serif"],
       condensed: ["var(--font-plex-condensed)", "system-ui", "sans-serif"],
       mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
+      // Apple New York preferred; Newsreader web fallback for non-Apple/Loom.
+      serif: ['ui-serif', '"New York"', "var(--font-newsreader)", "Georgia", "serif"],
     },
     extend: {
       fontSize: {
@@ -42,6 +44,10 @@ const config: Config = {
         section: ["16px", { lineHeight: "1.4" }],
         title: ["24px", { lineHeight: "1.2" }],
         strip: ["44px", { lineHeight: "1" }],
+        // Serif display scale (H1/H2) + the huge stat numeral.
+        h1: ["30px", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
+        h2: ["20px", { lineHeight: "1.25", letterSpacing: "-0.005em" }],
+        stat: ["52px", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
       },
       borderRadius: { card: "8px" },
       boxShadow: {

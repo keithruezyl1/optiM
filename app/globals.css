@@ -20,8 +20,25 @@
   }
 }
 
+@layer components {
+  /* Typographic hierarchy. Serif (New York / Newsreader) for display headings;
+     clean sans for subtitle + body so dense data stays scannable. */
+  .t-h1 {
+    @apply font-serif text-h1 font-semibold text-ink;
+  }
+  .t-h2 {
+    @apply font-serif text-h2 font-medium text-ink;
+  }
+  .t-subtitle {
+    @apply font-sans text-ui font-medium text-steel;
+  }
+  .t-body {
+    @apply font-sans text-ui leading-relaxed text-ink;
+  }
+}
+
 @layer utilities {
-  /* Tabular numerals for the Readiness Strip + dates so columns never jitter. */
+  /* Tabular numerals for stat numerals + dates so columns never jitter. */
   .tnum {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum" 1;

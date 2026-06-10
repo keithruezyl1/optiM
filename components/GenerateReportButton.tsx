@@ -14,7 +14,7 @@ function todayStamp(): string {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
-export function GenerateReportButton() {
+export function GenerateReportButton({ block = false }: { block?: boolean }) {
   const [state, setState] = useState<"idle" | "generating" | "error">("idle");
 
   async function handleClick() {
@@ -38,12 +38,14 @@ export function GenerateReportButton() {
   }
 
   return (
-    <div className="relative">
+    <div className={block ? "relative" : "relative inline-block"}>
       <button
         type="button"
         onClick={handleClick}
         disabled={state === "generating"}
-        className="inline-flex items-center gap-2 rounded-card bg-gold px-4 py-2 text-ui font-semibold text-navy-900 transition-colors duration-150 ease-ops hover:bg-[#A6851F] disabled:cursor-wait disabled:opacity-80"
+        className={`${
+          block ? "flex w-full justify-center" : "inline-flex"
+        } items-center gap-2 rounded-card bg-gold px-4 py-2 text-ui font-semibold text-navy-900 transition-colors duration-150 ease-ops hover:bg-[#A6851F] disabled:cursor-wait disabled:opacity-80`}
       >
         {state === "generating" ? (
           <>
