@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" name="AI summary panel" subtitle="Resting / loading / done states" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--navy-900:#0B1F3A;--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;--white:#FFFFFF;
+  --border:#E3E8EF;--gold:#B9962E;--font-sans:'IBM Plex Sans',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px}
+.stack{display:flex;flex-direction:column;gap:16px;max-width:820px}
+.panel{background:var(--white);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:8px;
+  padding:16px 18px;box-shadow:0 1px 2px rgba(11,31,58,.06)}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600}
+.between{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.rest{font-size:14px;color:var(--steel);margin-top:6px;max-width:520px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;
+  background:#fff;color:var(--navy-900);border:1px solid var(--navy-900);cursor:pointer;flex:0 0 auto}
+.load{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:14px;color:var(--steel)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.summary{font-size:15px;line-height:1.6;margin-top:12px}
+.regen{font-size:13px;font-weight:500;color:#16365C;text-decoration:underline;background:none;border:0;cursor:pointer}
+svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="panel">
+      <div class="between">
+        <div><div class="eyebrow">AI Operations Summary</div>
+          <div class="rest">Summarize compliance across 15 staff records — credential risk, facility concentration, and the most urgent items.</div>
+        </div>
+        <button class="btn"><svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>Run AI summary</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="eyebrow">AI Operations Summary</div>
+      <div class="load"><span class="dot"></span>Analyzing 15 staff records…</div>
+    </div>
+
+    <div class="panel">
+      <div class="between"><div class="eyebrow">AI Operations Summary</div><button class="regen">Regenerate</button></div>
+      <p class="summary">Of 15 staff, 9 are fully compliant while 2 hold expired credentials — Maria Delgado (RN, Brooke Army Medical Center) and James Whitfield (MRI, Wilford Hall). Four more expire within 60 days, most urgently Daniel Cruz (12 days). Two onboarding files remain in progress. Immediate action is required on the two lapsed credentials.</p>
+    </div>
+  </div>
+</body>
+</html>

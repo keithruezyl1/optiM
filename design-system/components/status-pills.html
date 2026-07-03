@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" name="Status pills" subtitle="Credential + deliverable states" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;--white:#FFFFFF;--border:#E3E8EF;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px 24px;max-width:620px}
+.section{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600;margin:0 0 12px}
+.section+.section{margin-top:24px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;white-space:nowrap;border-radius:4px;padding:2px 8px;
+  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+.red{color:#C0392B;background:rgba(192,57,43,.12)}
+.amber{color:#C77D1F;background:rgba(199,125,31,.12)}
+.green{color:#1F7A4D;background:rgba(31,122,77,.12)}
+.neutral{color:#5B6B82;background:rgba(91,107,130,.12)}
+.spec{margin-top:20px;font-size:12px;color:var(--steel);line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="section">Credential status</div>
+    <div class="row">
+      <span class="pill red">Expired</span>
+      <span class="pill amber">Expires in 25d</span>
+      <span class="pill green">Current</span>
+    </div>
+
+    <div class="section">Deliverable status</div>
+    <div class="row">
+      <span class="pill red">Overdue</span>
+      <span class="pill amber">Due Jun 17</span>
+      <span class="pill green">On track</span>
+    </div>
+
+    <div class="section">Onboarding</div>
+    <div class="row">
+      <span class="pill neutral">Onboarding</span>
+    </div>
+
+    <div class="spec">11px uppercase · tinted background at ~12% of the status color · solid status-color text.</div>
+  </div>
+</body>
+</html>

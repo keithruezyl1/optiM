@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" name="Role avatars" subtitle="Initials on per-role gradient, 9 roles" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;--white:#FFFFFF;--border:#E3E8EF;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.person{display:flex;align-items:center;gap:12px}
+.av{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:600;font-size:12.8px;box-shadow:0 1px 2px rgba(11,31,58,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3),0 1px 2px rgba(11,31,58,.18)}
+.nm{font-size:13px;font-weight:500;line-height:1.2}
+.rl{font-size:11px;color:var(--steel)}
+.title{font-size:16px;font-weight:600;margin-bottom:16px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">Role-coded avatars</div>
+    <div class="grid">
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#0E9D8E,#0B7A6E)">MD</span><span><span class="nm">Maria Delgado</span><br><span class="rl">Registered Nurse</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#7C5CD6,#5B3FB0)">SR</span><span><span class="nm">Sofia Ramirez</span><br><span class="rl">Clinical Social Worker</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#4763C9,#324BA6)">AB</span><span><span class="nm">Aisha Bello</span><br><span class="rl">Case Manager</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#3E9B57,#2C7A42)">NB</span><span><span class="nm">Nathan Brooks</span><br><span class="rl">Nutritionist</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#D98A34,#B86E1E)">RH</span><span><span class="nm">Robert Hsu</span><br><span class="rl">Pharmacy Technician</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#D2566B,#B23A50)">ML</span><span><span class="nm">Marcus Lee</span><br><span class="rl">Phlebotomist</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#C0453B,#9E322A)">DC</span><span><span class="nm">Daniel Cruz</span><br><span class="rl">Cardiovascular Technologist</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#3576C9,#255CA6)">JW</span><span><span class="nm">James Whitfield</span><br><span class="rl">MRI Technologist</span></span></div>
+      <div class="person"><span class="av" style="background:linear-gradient(135deg,#2C9BB0,#1F7A8C)">EC</span><span><span class="nm">Emily Carter</span><br><span class="rl">Medical Laboratory Technician</span></span></div>
+    </div>
+  </div>
+</body>
+</html>

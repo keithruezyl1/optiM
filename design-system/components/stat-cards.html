@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" name="Stat cards" subtitle="Glossy gradient, 5 tones, icon watermark" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:wght@500;600&display=swap');
+:root{
+  --slate-100:#F3F5F8;--steel:#5B6B82;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-serif:ui-serif,'New York','Newsreader',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--slate-100);padding:28px;-webkit-font-smoothing:antialiased}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:16px}
+.card{position:relative;min-height:148px;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;border-radius:16px;padding:16px;color:#fff}
+.sheen{position:absolute;inset:0;background:radial-gradient(120% 80% at 0% 0%,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 45%)}
+.wm{position:absolute;right:-4px;top:12px;opacity:.16;pointer-events:none}
+.num{position:relative;font-family:var(--font-serif);font-size:52px;line-height:.95;font-weight:600;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lab{position:relative;margin-top:4px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+.navy{background:linear-gradient(150deg,#1E4A7E,#0B1F3A);box-shadow:0 12px 28px -10px rgba(11,31,58,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.green{background:linear-gradient(150deg,#2BA66B,#1B6B43);box-shadow:0 12px 28px -10px rgba(31,122,77,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.amber{background:linear-gradient(150deg,#DBA13F,#B0681A);box-shadow:0 12px 28px -10px rgba(176,104,26,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.red{background:linear-gradient(150deg,#D24A3B,#9E2C25);box-shadow:0 12px 28px -10px rgba(160,44,42,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.steel{background:linear-gradient(150deg,#71849E,#48566A);box-shadow:0 12px 28px -10px rgba(72,86,106,.38),inset 0 1px 0 rgba(255,255,255,.22)}
+svg{width:132px;height:132px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card navy"><span class="sheen"></span><svg class="wm" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div class="num">15</div><div class="lab">Total Staff</div></div>
+    <div class="card green"><span class="sheen"></span><svg class="wm" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div class="num">9</div><div class="lab">Compliant</div></div>
+    <div class="card amber"><span class="sheen"></span><svg class="wm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div class="num">4</div><div class="lab">Expiring &le;60d</div></div>
+    <div class="card red"><span class="sheen"></span><svg class="wm" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg><div class="num">2</div><div class="lab">Expired</div></div>
+    <div class="card steel"><span class="sheen"></span><svg class="wm" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg><div class="num">2</div><div class="lab">Onboarding</div></div>
+  </div>
+</body>
+</html>

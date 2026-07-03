@@ -1,0 +1,40 @@
+<!-- @dsCard group="Foundations" name="Typography" subtitle="Serif display + Plex sans/mono scale" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;0,600&display=swap');
+:root{
+  --ink:#1A2433;--steel:#5B6B82;--slate-100:#F3F5F8;--white:#FFFFFF;--border:#E3E8EF;--gold:#B9962E;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-cond:'IBM Plex Sans Condensed',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;--font-serif:ui-serif,'New York','Newsreader',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px;-webkit-font-smoothing:antialiased}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 26px;max-width:760px}
+.row{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:0}
+.tag{flex:0 0 120px;font-family:var(--font-mono);font-size:11px;color:var(--steel);text-transform:uppercase;letter-spacing:.04em}
+.h1{font-family:var(--font-serif);font-size:30px;line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.h2{font-family:var(--font-serif);font-size:20px;line-height:1.25;font-weight:500}
+.subtitle{font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--steel)}
+.body{font-family:var(--font-sans);font-size:14px;line-height:1.5}
+.stat{font-family:var(--font-serif);font-size:46px;line-height:1;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mono{font-family:var(--font-mono);font-size:12px}
+.eyebrow{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="row"><div class="tag">H1 · serif 30</div><div class="h1">Staffing &amp; Credentials</div></div>
+    <div class="row"><div class="tag">H2 · serif 20</div><div class="h2">Staff directory</div></div>
+    <div class="row"><div class="tag">Subtitle · 14</div><div class="subtitle">All staff · Joint Commission readiness across deployments</div></div>
+    <div class="row"><div class="tag">Body · 14</div><div class="body">Two onboarding files are incomplete and four credentials expire within 60 days.</div></div>
+    <div class="row"><div class="tag">Stat · serif 46</div><div class="stat">15</div></div>
+    <div class="row"><div class="tag">Eyebrow · 11</div><div class="eyebrow">AI Operations Summary</div></div>
+    <div class="row"><div class="tag">Mono · 12</div><div class="mono">W81K04-25-C-0042 · Jul 15</div></div>
+  </div>
+</body>
+</html>

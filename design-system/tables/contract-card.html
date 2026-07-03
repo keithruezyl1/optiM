@@ -1,0 +1,60 @@
+<!-- @dsCard group="Tables" name="Contract card" subtitle="Active chip, deliverables, status-colored dates" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+:root{--slate-100:#F3F5F8;--navy-900:#0B1F3A;--ink:#1A2433;--steel:#5B6B82;--white:#FFFFFF;--border:#E3E8EF;
+  --signal-red:#C0392B;--amber:#C77D1F;--ops-green:#1F7A4D;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px;font-size:13px}
+.card{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:860px;box-shadow:0 1px 2px rgba(11,31,58,.06)}
+.top{display:flex;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.chiprow{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.chip{display:inline-flex;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;text-transform:uppercase;color:var(--ops-green);background:rgba(31,122,77,.12)}
+.num{font-family:var(--font-mono);font-size:12px;color:var(--steel)}
+.name{font-size:16px;font-weight:600}
+.agency{font-size:12px;color:var(--steel);margin-top:2px}
+.right{text-align:right}
+.val{font-size:18px;font-weight:600}
+.pop{font-family:var(--font-mono);font-size:11px;color:var(--steel);margin-top:6px}
+table{width:100%;table-layout:fixed;border-collapse:collapse}
+col.c1{width:46%}col.c2{width:22%}col.c3{width:14%}col.c4{width:18%}
+th{text-align:left;padding:10px 20px;border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600}
+th.r{text-align:right}
+td{padding:10px 20px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:0}
+.done{margin-left:8px;font-size:11px;text-transform:uppercase;color:var(--ops-green)}
+.date{font-family:var(--font-mono);font-size:12px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;text-transform:uppercase}
+.red{color:var(--signal-red);background:rgba(192,57,43,.12)}
+.amber{color:var(--amber);background:rgba(199,125,31,.12)}
+.green{color:var(--ops-green);background:rgba(31,122,77,.12)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div>
+        <div class="chiprow"><span class="chip">Active</span><span class="num">W81K04-25-C-0042</span></div>
+        <div class="name">Medical Staffing Augmentation - BAMC</div>
+        <div class="agency">Defense Health Agency</div>
+      </div>
+      <div class="right"><div class="val">$4.2M</div><div class="pop">Nov 22, 2025 – Nov 17, 2026</div></div>
+    </div>
+    <table>
+      <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+      <thead><tr><th>Deliverable</th><th>Owner</th><th class="r">Due</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>April compliance report<span class="done">done</span></td><td>Dana Reyes</td><td class="date" style="color:var(--ink)">May 6</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Monthly staffing compliance report - May</td><td>Dana Reyes</td><td class="date" style="color:var(--signal-red)">Jun 7</td><td><span class="pill red">Overdue</span></td></tr>
+        <tr><td>Quarterly credential audit</td><td>Dana Reyes</td><td class="date" style="color:var(--signal-red)">Jun 9</td><td><span class="pill red">Overdue</span></td></tr>
+        <tr><td>Onboarding packet - 3 new RNs</td><td>Priya Shah</td><td class="date" style="color:var(--amber)">Jun 19</td><td><span class="pill amber">Due Jun 19</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

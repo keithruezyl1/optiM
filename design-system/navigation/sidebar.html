@@ -1,0 +1,63 @@
+<!-- @dsCard group="Navigation" name="Sidebar" subtitle="Icon rail + nested status views" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&display=swap');
+:root{--navy-900:#0B1F3A;--navy-700:#16365C;--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;
+  --white:#FFFFFF;--border:#E3E8EF;--gold:#B9962E;--signal-red:#C0392B;--amber:#C77D1F;--ops-green:#1F7A4D;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-cond:'IBM Plex Sans Condensed',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px}
+.wrap{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;width:320px;height:520px;box-shadow:0 1px 2px rgba(11,31,58,.06)}
+.rail{width:56px;background:var(--navy-900);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0}
+.mark{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.08);color:var(--gold);font-family:var(--font-cond);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center}
+.ricon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:8px;color:rgba(255,255,255,.7)}
+.ricon.active{background:var(--gold);color:var(--navy-900)}
+.ricon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.panel{flex:1;background:#fff;display:flex;flex-direction:column}
+.head{padding:16px 18px 12px}
+.word{font-family:var(--font-cond);font-weight:700;font-size:22px;line-height:1}
+.word span{color:var(--gold)}
+.ops{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);margin-top:4px}
+.gen{margin:0 12px 14px;display:flex;justify-content:center;gap:8px;align-items:center;background:var(--gold);color:var(--navy-900);font-size:13px;font-weight:600;border-radius:8px;padding:8px}
+.grp{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600;padding:0 14px 6px}
+.leaf{display:flex;align-items:center;justify-content:space-between;margin:0 8px;padding:7px 12px 7px 24px;border-radius:8px;font-size:14px;color:rgba(26,36,51,.8)}
+.leaf.active{background:rgba(11,31,58,.06);color:var(--navy-900);font-weight:600}
+.leaf .l{display:flex;align-items:center;gap:10px}
+.d{width:8px;height:8px;border-radius:50%}
+.badge{min-width:22px;text-align:center;font-size:12px;border-radius:6px;padding:1px 6px;background:var(--slate-100);color:var(--steel);font-variant-numeric:tabular-nums}
+.leaf.active .badge{background:var(--navy-900);color:#fff}
+.mt{margin-top:8px}
+.foot{margin-top:auto;border-top:1px solid var(--border);padding:12px 18px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="rail">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="mark">M</div>
+        <div class="ricon active"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="ricon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      </div>
+      <div class="ricon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/></svg></div>
+    </div>
+    <div class="panel">
+      <div class="head"><div class="word">Opti<span>M</span></div><div class="ops">Operations</div></div>
+      <div class="gen">Generate weekly report</div>
+      <div class="grp">Staffing</div>
+      <div class="leaf active"><span class="l"><span class="d" style="background:#C2CBD8"></span>All</span><span class="badge">15</span></div>
+      <div class="leaf"><span class="l"><span class="d" style="background:var(--ops-green)"></span>Compliant</span><span class="badge">9</span></div>
+      <div class="leaf"><span class="l"><span class="d" style="background:var(--amber)"></span>Expiring</span><span class="badge">4</span></div>
+      <div class="leaf"><span class="l"><span class="d" style="background:var(--signal-red)"></span>Expired</span><span class="badge">2</span></div>
+      <div class="leaf"><span class="l"><span class="d" style="background:var(--steel)"></span>Onboarding</span><span class="badge">2</span></div>
+      <div class="grp mt">Contracts</div>
+      <div class="leaf"><span class="l"><span class="d" style="background:#C2CBD8"></span>All</span><span class="badge">5</span></div>
+      <div class="leaf"><span class="l"><span class="d" style="background:var(--signal-red)"></span>Overdue</span><span class="badge">2</span></div>
+      <div class="foot">System built for JVM Solutions</div>
+    </div>
+  </div>
+</body>
+</html>

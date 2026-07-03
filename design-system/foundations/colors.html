@@ -1,0 +1,57 @@
+<!-- @dsCard group="Foundations" name="Color palette" subtitle="10 core tokens + status usage" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{
+  --navy-900:#0B1F3A;--navy-700:#16365C;--slate-100:#F3F5F8;--white:#FFFFFF;
+  --ink:#1A2433;--steel:#5B6B82;--signal-red:#C0392B;--amber:#C77D1F;
+  --ops-green:#1F7A4D;--gold:#B9962E;--border:#E3E8EF;--banner-red:#FBEAE8;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px;-webkit-font-smoothing:antialiased}
+h1{font-size:16px;font-weight:600;margin-bottom:2px}
+.sub{font-size:12px;color:var(--steel);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.swatch{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.chip{height:64px}
+.meta{padding:8px 10px}
+.name{font-size:12px;font-weight:600}
+.hex{font-family:var(--font-mono);font-size:11px;color:var(--steel);text-transform:uppercase}
+.use{font-size:10px;color:var(--steel);margin-top:2px;line-height:1.3}
+.section{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600;margin:22px 0 10px}
+</style>
+</head>
+<body>
+  <h1>Color palette</h1>
+  <div class="sub">Status color appears only where status is communicated. Gold is a single accent.</div>
+
+  <div class="section">Structure</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#0B1F3A"></div><div class="meta"><div class="name">navy-900</div><div class="hex">#0B1F3A</div><div class="use">Sidebar rail, PDF header</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#16365C"></div><div class="meta"><div class="name">navy-700</div><div class="hex">#16365C</div><div class="use">Active tab, button hover</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F3F5F8"></div><div class="meta"><div class="name">slate-100</div><div class="hex">#F3F5F8</div><div class="use">App background</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E3E8EF"></div><div class="meta"><div class="name">white</div><div class="hex">#FFFFFF</div><div class="use">Cards, tables</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#E3E8EF"></div><div class="meta"><div class="name">border</div><div class="hex">#E3E8EF</div><div class="use">Hairlines</div></div></div>
+  </div>
+
+  <div class="section">Text</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#1A2433"></div><div class="meta"><div class="name">ink</div><div class="hex">#1A2433</div><div class="use">Primary text</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#5B6B82"></div><div class="meta"><div class="name">steel</div><div class="hex">#5B6B82</div><div class="use">Secondary text, labels</div></div></div>
+  </div>
+
+  <div class="section">Status &amp; accent</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#C0392B"></div><div class="meta"><div class="name">signal-red</div><div class="hex">#C0392B</div><div class="use">Expired / Overdue</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#C77D1F"></div><div class="meta"><div class="name">amber</div><div class="hex">#C77D1F</div><div class="use">Expiring / Due soon</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1F7A4D"></div><div class="meta"><div class="name">ops-green</div><div class="hex">#1F7A4D</div><div class="use">Compliant / On track</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#B9962E"></div><div class="meta"><div class="name">gold</div><div class="hex">#B9962E</div><div class="use">Single accent only</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FBEAE8"></div><div class="meta"><div class="name">banner-red</div><div class="hex">#FBEAE8</div><div class="use">Overdue banner fill</div></div></div>
+  </div>
+</body>
+</html>

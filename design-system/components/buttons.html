@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" name="Buttons" subtitle="Gold primary, navy, outline, link" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--navy-900:#0B1F3A;--navy-700:#16365C;--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;
+  --white:#FFFFFF;--border:#E3E8EF;--gold:#B9962E;--font-sans:'IBM Plex Sans',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:18px}
+.row:last-child{margin-bottom:0}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid transparent}
+.gold{background:var(--gold);color:var(--navy-900)}
+.navy{background:var(--navy-900);color:#fff}
+.outline{background:#fff;color:var(--navy-900);border-color:var(--navy-900)}
+.link{background:none;color:var(--navy-700);text-decoration:underline;font-size:13px;font-weight:500;padding:0}
+.note{flex:0 0 130px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);font-weight:600}
+svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="row"><span class="note">Primary (gold)</span>
+      <button class="btn gold"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>Generate weekly report</button>
+    </div>
+    <div class="row"><span class="note">Secondary</span>
+      <button class="btn navy"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Add staff member</button>
+    </div>
+    <div class="row"><span class="note">Outline</span>
+      <button class="btn outline"><svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>Run AI summary</button>
+    </div>
+    <div class="row"><span class="note">Text link</span>
+      <button class="link">Regenerate</button>
+    </div>
+  </div>
+</body>
+</html>

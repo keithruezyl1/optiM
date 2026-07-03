@@ -1,0 +1,92 @@
+<!-- @dsCard group="Tables" name="Staff table" subtitle="Avatars, dedicated status, status-colored dates" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+:root{--slate-100:#F3F5F8;--ink:#1A2433;--steel:#5B6B82;--white:#FFFFFF;--border:#E3E8EF;
+  --signal-red:#C0392B;--amber:#C77D1F;--ops-green:#1F7A4D;--gold:#B9962E;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--slate-100);padding:28px;font-size:13px}
+.count{color:var(--steel);margin-bottom:10px}
+.count b{color:var(--ink)}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 1px 2px rgba(11,31,58,.06)}
+th{text-align:left;padding:12px 16px;border-bottom:1px solid var(--border)}
+.hd{display:inline-flex;align-items:center;gap:6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:600}
+.hd svg{width:13px;height:13px;stroke:rgba(91,107,130,.6);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:rgba(243,245,248,.6)}
+.person{display:flex;align-items:center;gap:10px}
+.av{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:11px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3),0 1px 2px rgba(11,31,58,.18)}
+.nm{font-weight:500}
+.stack{display:flex;flex-direction:column;gap:6px}
+.center{text-align:center}
+.center .stack{align-items:center}
+.pill{display:inline-flex;align-items:center;white-space:nowrap;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;text-transform:uppercase;height:22px}
+.red{color:var(--signal-red);background:rgba(192,57,43,.12)}
+.amber{color:var(--amber);background:rgba(199,125,31,.12)}
+.green{color:var(--ops-green);background:rgba(31,122,77,.12)}
+.date{font-family:var(--font-mono);font-size:12px;font-weight:500;line-height:22px;font-variant-numeric:tabular-nums}
+.ob-c{color:var(--ops-green);font-weight:500}
+.ob-o{color:var(--amber);font-weight:500}
+</style>
+</head>
+<body>
+  <div class="count">Showing <b>4</b> of 15 staff</div>
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th><span class="hd">Name <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+        <th><span class="hd">Role <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+        <th><span class="hd">Credentials <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+        <th><span class="hd">Status <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+        <th class="center"><span class="hd">Expiry</span></th>
+        <th><span class="hd">Facility / Deployment <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+        <th class="center"><span class="hd">Onboarding <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="person"><span class="av" style="background:linear-gradient(135deg,#0E9D8E,#0B7A6E)">MD</span><span class="nm">Maria Delgado</span></span></td>
+        <td>Registered Nurse</td>
+        <td><div class="stack"><span>BLS</span><span>RN License (TX)</span></div></td>
+        <td><div class="stack"><span class="pill red">Expired</span><span class="pill green">Current</span></div></td>
+        <td class="center"><div class="stack"><span class="date" style="color:var(--signal-red)">May 29</span><span class="date" style="color:var(--ink)">Jul 15</span></div></td>
+        <td>Brooke Army Medical Center</td>
+        <td class="center"><span class="ob-c">Complete</span></td>
+      </tr>
+      <tr>
+        <td><span class="person"><span class="av" style="background:linear-gradient(135deg,#4763C9,#324BA6)">AB</span><span class="nm">Aisha Bello</span></span></td>
+        <td>Case Manager</td>
+        <td><div class="stack"><span>CCM</span><span>BLS</span></div></td>
+        <td><div class="stack"><span class="pill amber">Expires in 25d</span><span class="pill green">Current</span></div></td>
+        <td class="center"><div class="stack"><span class="date" style="color:var(--amber)">Jul 5</span><span class="date" style="color:var(--ink)">Apr 6</span></div></td>
+        <td>Brooke Army Medical Center</td>
+        <td class="center"><span class="ob-c">Complete</span></td>
+      </tr>
+      <tr>
+        <td><span class="person"><span class="av" style="background:linear-gradient(135deg,#D2566B,#B23A50)">ML</span><span class="nm">Marcus Lee</span></span></td>
+        <td>Phlebotomist</td>
+        <td><div class="stack"><span>Phlebotomy (NHA)</span></div></td>
+        <td><div class="stack"><span class="pill green">Current</span></div></td>
+        <td class="center"><div class="stack"><span class="date" style="color:var(--ink)">Jan 16</span></div></td>
+        <td>Brooke Army Medical Center</td>
+        <td class="center"><span class="ob-o">Onboarding</span></td>
+      </tr>
+      <tr>
+        <td><span class="person"><span class="av" style="background:linear-gradient(135deg,#2C9BB0,#1F7A8C)">EC</span><span class="nm">Emily Carter</span></span></td>
+        <td>Medical Laboratory Technician</td>
+        <td><div class="stack"><span>BLS</span><span>MLT (ASCP)</span></div></td>
+        <td><div class="stack"><span class="pill green">Current</span><span class="pill green">Current</span></div></td>
+        <td class="center"><div class="stack"><span class="date" style="color:var(--ink)">Oct 8</span><span class="date" style="color:var(--ink)">May 10</span></div></td>
+        <td>Wilford Hall Ambulatory Surgical Center</td>
+        <td class="center"><span class="ob-c">Complete</span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
